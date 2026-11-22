@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TABAR AI</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #080d19;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #101d35;
+  padding: 18px;
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
+  border-bottom: 2px solid #1685ff;
+}
+header span { color: #329aff; }
+#chat {
+  height: calc(100dvh - 145px);
+  overflow-y: auto;
+  padding: 20px;
+}
+.message {
+  padding: 13px;
+  margin: 12px 0;
+  border-radius: 15px;
+  line-height: 1.5;
+}
+.bot { background: #1c2c46; }
+.user {
+  background: #0864c9;
+  margin-left: 35px;
+}
+footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #101d35;
+}
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: #263650;
+  color: white;
+  font-size: 16px;
+}
+button {
+  background: #087bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+}
+</style>
+</head>
+<body>
+<header>🇹🇷 <span>TABAR</span> AI</header>
+<main id="chat">
+  <div class="message bot">
+    Merhaba! Ben TABAR. 🇹🇷
+    Sana nasıl yardımcı olabilirim?
+  </div>
+</main>
+<footer>
+  <input id="question" placeholder="TABAR'a sor...">
+  <button onclick="send()">Gönder</button>
+</footer>
+<script>
+function send() {
+  const input = document.getElementById("question");
+  const chat = document.getElementById("chat");
+  const question = input.value.trim();
+  if (!question) return;
+
+  const user = document.createElement("div");
+  user.className = "message user";
+  user.textContent = question;
+  chat.appendChild(user);
+
+  const bot = document.createElement("div");
+  bot.className = "message bot";
+  bot.textContent = "TABAR yapay zekâ bağlantısı hazırlanıyor.";
+  chat.appendChild(bot);
+
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+</body>
+</html>
